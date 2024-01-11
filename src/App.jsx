@@ -31,6 +31,13 @@ export default function App() {
     setCookies(cookies + clickValue);
   }
 
+  function resetLocalStorage() {
+    localStorage.clear();
+    setCps(1);
+    setClickValue(1);
+    setCookies(0);
+  }
+
   return (
     <div>
       <h1>COOKIES: {cookies}</h1>
@@ -39,6 +46,7 @@ export default function App() {
       <button onClick={increaseCookies}>🍪</button>
       <button onClick={increaseCps}>cps+1</button>
       <button onClick={increaseValue}>value+1</button>
+      <button onClick={resetLocalStorage}>RESET</button>
     </div>
   );
 }
