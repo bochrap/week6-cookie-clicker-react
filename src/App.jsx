@@ -6,6 +6,11 @@ export default function App() {
   const [cps, setCps] = useState(parseInt(localStorage.getItem("cps")) || 1);
   const [clickValue, setClickValue] = useState(parseInt(localStorage.getItem("clickValue")) || 1);
 
+  const upgrades = [
+    { name: "upgrade1", price: "10", type: "cv" },
+    { name: "upgrade2", price: "50", type: "cps" },
+  ];
+
   useEffect(() => {
     const cookieInterval = setInterval(() => {
       setCookies((currentCookies) => currentCookies + 1);
