@@ -1,5 +1,9 @@
-.hidden {
-  opacity: 0.3;
+.upgrades button {
+  background-color: rgb(145, 244, 145);
+}
+
+button.hidden {
+  opacity: 0.2;
   pointer-events: none;
-  background-color: brown;
+  background-color: transparent;
 }

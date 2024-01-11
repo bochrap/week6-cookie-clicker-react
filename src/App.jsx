@@ -2,14 +2,13 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 export default function App() {
-  // const [cookies, setCookies] = useState(0);
   const [cookies, setCookies] = useState(parseInt(localStorage.getItem("cookies")) || 0);
   const [cps, setCps] = useState(parseInt(localStorage.getItem("cps")) || 1);
   const [clickValue, setClickValue] = useState(parseInt(localStorage.getItem("clickValue")) || 1);
 
   const upgrades = [
-    { name: "upgrade1", price: "10", type: "cv", bonus: "5" },
-    { name: "upgrade2", price: "50", type: "cps", bonus: "1" },
+    { name: "upgrade1", price: "10", type: "cv", bonus: "1" },
+    { name: "upgrade2", price: "100", type: "cps", bonus: "1" },
   ];
 
   useEffect(() => {
@@ -66,7 +65,7 @@ export default function App() {
       <button onClick={() => increaseCps(1)}>cps+1</button>
       <button onClick={() => increaseValue(1)}>value+1</button>
       <button onClick={resetLocalStorage}>RESET</button>
-      <div>
+      <div className="upgrades">
         {upgrades.map((item) => (
           <button
             onClick={() => validateUpgrade(item.type, parseInt(item.bonus), parseInt(item.price))}
