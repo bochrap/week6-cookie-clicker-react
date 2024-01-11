@@ -7,3 +7,16 @@ button.hidden {
   pointer-events: none;
   background-color: transparent;
 }
+
+.upgrades {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#theCookie {
+  font-size: 5rem;
+  cursor: pointer;
+  user-select: none;
+}

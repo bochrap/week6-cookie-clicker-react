@@ -57,13 +57,14 @@ export default function App() {
   }
 
   return (
-    <div>
-      <h1>COOKIES: {cookies}</h1>
-      <h4>cps: {cps}</h4>
-      <h4>click value: {clickValue}</h4>
+    <div id="main">
+      <p id="theCookie" onClick={increaseCookies}>
+        🍪
+      </p>
+      <h1 id="counter">{cookies}</h1>
+      <h4>🍪/s: {cps}</h4>
+      <h4>🍪/click: {clickValue}</h4>
       <button onClick={increaseCookies}>🍪</button>
-      <button onClick={() => increaseCps(1)}>cps+1</button>
-      <button onClick={() => increaseValue(1)}>value+1</button>
       <button onClick={resetLocalStorage}>RESET</button>
       <div className="upgrades">
         {upgrades.map((item) => (
