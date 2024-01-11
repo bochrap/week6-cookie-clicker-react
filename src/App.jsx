@@ -43,11 +43,16 @@ export default function App() {
     setCookies(0);
   }
 
-  function validateUpgrade(upgradeType, upgradeValue) {
-    if (upgradeType === "cps") {
-      increaseCps(upgradeValue);
+  function validateUpgrade(upgradeType, upgradeValue, itemPrice) {
+    if (cookies < itemPrice) {
+      null;
     } else {
-      increaseValue(upgradeValue);
+      setCookies((currentCookies) => currentCookies - itemPrice);
+      if (upgradeType === "cps") {
+        increaseCps(upgradeValue);
+      } else {
+        increaseValue(upgradeValue);
+      }
     }
   }
 
@@ -63,7 +68,7 @@ export default function App() {
       <div>
         {upgrades.map((item) => (
           <button
-            onClick={() => validateUpgrade(item.type, parseInt(item.bonus))}
+            onClick={() => validateUpgrade(item.type, parseInt(item.bonus), parseInt(item.price))}
             key={item.type + item.price}
           >{`+${item.bonus}${item.type} for ${item.price}🍪`}</button>
         ))}
