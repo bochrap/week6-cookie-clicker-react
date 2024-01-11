@@ -8,12 +8,13 @@ export default function App() {
   useEffect(() => {
     const cookieInterval = setInterval(() => {
       setCookies((currentCookies) => currentCookies + 1);
+      localStorage.setItem("cookies", cookies);
     }, 1000 / cps);
 
     return () => {
       clearInterval(cookieInterval);
     };
-  }, [cps, clickValue]);
+  }, [cps, clickValue, cookies]);
 
   function increaseCps() {
     setCps(cps + 1);
