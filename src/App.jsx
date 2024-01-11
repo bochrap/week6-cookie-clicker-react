@@ -7,8 +7,8 @@ export default function App() {
   const [clickValue, setClickValue] = useState(parseInt(localStorage.getItem("clickValue")) || 1);
 
   const upgrades = [
-    { name: "upgrade1", price: "10", type: "cv" },
-    { name: "upgrade2", price: "50", type: "cps" },
+    { name: "upgrade1", price: "10", type: "cv", bonus: "5" },
+    { name: "upgrade2", price: "50", type: "cps", bonus: "1" },
   ];
 
   useEffect(() => {
@@ -24,12 +24,12 @@ export default function App() {
     };
   }, [cps, clickValue, cookies]);
 
-  function increaseCps() {
-    setCps(cps + 1);
+  function increaseCps(value) {
+    setCps(cps + value);
   }
 
-  function increaseValue() {
-    setClickValue(clickValue + 1);
+  function increaseValue(value) {
+    setClickValue(clickValue + value);
   }
 
   function increaseCookies() {
@@ -43,15 +43,31 @@ export default function App() {
     setCookies(0);
   }
 
+  function validateUpgrade(upgradeType, upgradeValue) {
+    if (upgradeType === "cps") {
+      increaseCps(upgradeValue);
+    } else {
+      increaseValue(upgradeValue);
+    }
+  }
+
   return (
     <div>
       <h1>COOKIES: {cookies}</h1>
       <h4>cps: {cps}</h4>
       <h4>click value: {clickValue}</h4>
       <button onClick={increaseCookies}>🍪</button>
-      <button onClick={increaseCps}>cps+1</button>
-      <button onClick={increaseValue}>value+1</button>
+      <button onClick={() => increaseCps(1)}>cps+1</button>
+      <button onClick={() => increaseValue(1)}>value+1</button>
       <button onClick={resetLocalStorage}>RESET</button>
+      <div>
+        {upgrades.map((item) => (
+          <button
+            onClick={() => validateUpgrade(item.type, parseInt(item.bonus))}
+            key={item.type + item.price}
+          >{`+${item.bonus}${item.type} for ${item.price}🍪`}</button>
+        ))}
+      </div>
     </div>
   );
 }
