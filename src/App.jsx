@@ -5,6 +5,16 @@ export default function App() {
   const [cps, setCps] = useState(1);
   const [clickValue, setClickValue] = useState(1);
 
+  useEffect(() => {
+    const cookieInterval = setInterval(() => {
+      setCookies((currentCookies) => currentCookies + 1);
+    }, 1000 / cps);
+
+    return () => {
+      clearInterval(cookieInterval);
+    };
+  }, [cps, clickValue]);
+
   function increaseCps() {
     setCps(cps + 1);
   }
