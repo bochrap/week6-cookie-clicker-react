@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./App.css";
 
 export default function App() {
   // const [cookies, setCookies] = useState(0);
@@ -70,6 +71,7 @@ export default function App() {
           <button
             onClick={() => validateUpgrade(item.type, parseInt(item.bonus), parseInt(item.price))}
             key={item.type + item.price}
+            className={cookies >= item.price ? "" : "hidden"}
           >{`+${item.bonus}${item.type} for ${item.price}🍪`}</button>
         ))}
       </div>

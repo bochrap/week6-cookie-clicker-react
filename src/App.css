@@ -1,0 +1,5 @@
+.hidden {
+  opacity: 0.3;
+  pointer-events: none;
+  background-color: brown;
+}
