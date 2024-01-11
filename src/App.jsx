@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react";
 
 export default function App() {
-  const [cookies, setCookies] = useState(0);
-  const [cps, setCps] = useState(1);
-  const [clickValue, setClickValue] = useState(1);
+  // const [cookies, setCookies] = useState(0);
+  const [cookies, setCookies] = useState(parseInt(localStorage.getItem("cookies")) || 0);
+  const [cps, setCps] = useState(parseInt(localStorage.getItem("cps")) || 1);
+  const [clickValue, setClickValue] = useState(parseInt(localStorage.getItem("clickValue")) || 1);
 
   useEffect(() => {
     const cookieInterval = setInterval(() => {
       setCookies((currentCookies) => currentCookies + 1);
-      localStorage.setItem("cookies", cookies);
+      localStorage.setItem("cookies", cookies.toString());
+      localStorage.setItem("cps", cps.toString());
+      localStorage.setItem("clickValue", clickValue.toString());
     }, 1000 / cps);
 
     return () => {
