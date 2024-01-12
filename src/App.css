@@ -1,5 +1,15 @@
-.upgrades button {
-  background-color: rgb(145, 244, 145);
+.main {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.section-upgrades button {
+  background-color: rgb(91, 142, 125);
+  border: none;
+  border-radius: 3px;
+  width: 80%;
+  height: 9%;
 }
 
 button.hidden {
@@ -8,15 +18,38 @@ button.hidden {
   background-color: transparent;
 }
 
-.upgrades {
-  margin-top: 10px;
+.reset {
+  background-color: rgb(188, 75, 81);
+  position: absolute;
+  right: 1%;
+  bottom: 1%;
+  border: none;
+  border-radius: 3px;
+  padding: 3px;
+}
+
+.section-cookie {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  justify-content: space-evenly;
+  /* gap: 5px; */
+  height: 50%;
+}
+
+.section-upgrades {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  align-items: center;
+  /* gap: 10px; */
+  height: 50%;
+  justify-content: space-evenly;
 }
 
 #theCookie {
-  font-size: 5rem;
+  font-size: 12rem;
   cursor: pointer;
   user-select: none;
+  border: none;
 }
