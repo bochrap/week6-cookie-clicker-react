@@ -7,9 +7,9 @@ export default function App() {
   const [clickValue, setClickValue] = useState(parseInt(localStorage.getItem("clickValue")) || 1);
 
   const upgrades = [
-    { name: "upgrade1", price: "10", type: "cv", bonus: "1" },
-    { name: "upgrade2", price: "50", type: "cv", bonus: "5" },
-    { name: "upgrade3", price: "500", type: "cv", bonus: "10" },
+    { name: "upgrade1", price: "100", type: "cv", bonus: "1" },
+    { name: "upgrade2", price: "500", type: "cv", bonus: "5" },
+    { name: "upgrade3", price: "1000", type: "cv", bonus: "10" },
     { name: "upgrade4", price: "2000", type: "cps", bonus: "5" },
     { name: "upgrade5", price: "5500", type: "cps", bonus: "10" },
     { name: "upgrade6", price: "10000", type: "cps", bonus: "100" },
